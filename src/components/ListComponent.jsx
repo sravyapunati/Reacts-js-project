@@ -54,6 +54,11 @@ const ListComponent = () => {
         }
     };
 
+    const getEmployee = (id) =>{
+        console.log("id-",id);
+        navigate(`/get/${id}`);
+    }
+
     return <div className='container d-flex flex-column justify-content-center align-items-center'>
         <h2 className='text center'>User List</h2>
         <div className="w-100 d-flex justify-content-end">
@@ -77,7 +82,7 @@ const ListComponent = () => {
                 {
                     isLoading = true && employees.length > 0 ? (
                         employees.map((u) => (
-                            <tr key={u.id}>
+                            <tr key={u.id} onClick={() => getEmployee(u.id)}>
                                 <td>{u.id}</td>
                                 <td>{u.firstName}</td>
                                 <td>{u.lastName}</td>

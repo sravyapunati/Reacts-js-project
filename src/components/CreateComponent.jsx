@@ -117,22 +117,24 @@ const CreateComponent = () => {
             <div className="form-group mb-3">
               <label>Email</label>
               <input type="email"
-                className="form-control"
+                className={`form-control ${error.emailId ? 'is-invalid' :''}`}
                 placeholder="Enter email"
                 name='emailId'
                 value={emailId}
                 onChange={(e) => setEmailId(e.target.value)}
               />
+              {error.emailId && <div className='invalid-feedback'>{error.emailId}</div>}
             </div>
             <div className="form-group mb-3">
               <label>Mobile Number</label>
               <input type="text"
-                className="form-control"
+                className={`form-control ${error.mobile ? 'is-invalid' : ''}`}
                 placeholder="Enter your mobile number"
                 name='mobile'
                 value={mobile}
                 onChange={(e) => setMobile(e.target.value)}
               />
+              {error.mobile && <div className='invalid-feedback'>{error.mobile}</div>}
             </div>
             <button type="submit" className="btn btn-primary w-100" onClick={addEmployee}>
               Submit

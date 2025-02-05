@@ -8,9 +8,9 @@ import { HeaderComponent } from './components/HeaderComponent'
 import { FooterComponent } from './components/FooterComponent'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import CreateComponent from './components/CreateComponent'
-
+import GetComponent from './components/GetComponent'
 function App() {
-  const [count, setCount] = useState(0)
+ // const [count, setCount] = useState(0)
 
   return (
     //<>-> fragament
@@ -22,6 +22,8 @@ function App() {
           <Route path="/" element={<ListComponent/>}></Route>
           <Route path="/employee" element={<ListComponent/>}></Route>
           <Route path="/create" element={<CreateComponent/>}></Route>
+          <Route path="/get/:id" element={<GetComponent/>}></Route>
+          <Route path="/update/:id" element={<GetComponent/>}></Route>
         </Routes>
       <FooterComponent/>
     </BrowserRouter>
