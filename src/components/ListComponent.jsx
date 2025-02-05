@@ -16,10 +16,10 @@ const ListComponent = () => {
     const formattedDate = `${year}-${month}-${day}`;
     //const formattedDate = `2025-01-05`;
     const endIndex = 5;
-    const fetchData = (startIndex, endIndex, formattedDate) => {
+    const fetchData = (startIndex, endIndex) => {
         console.log("fetchstartIndex---", startIndex)
         // setStartIndex(startIndex);
-        listEmployees(startIndex, endIndex, formattedDate).then((emp) => {
+        listEmployees(startIndex, endIndex).then((emp) => {
             console.log("response", emp.data.responseList)
             setEmployee(emp.data ? emp.data.responseList : []);
             setTotalRecords(emp.data.totalRecords);
@@ -34,7 +34,7 @@ const ListComponent = () => {
 
     useEffect(() => {
         setStartIndex(startIndex)
-        fetchData(startIndex, endIndex, formattedDate)
+        fetchData(startIndex, endIndex)
 
     }, [startIndex])
 
@@ -75,6 +75,7 @@ const ListComponent = () => {
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Mobile</th>
+                    <th>Designation</th>
                     <th>Created Date</th>
                 </tr>
             </thead>
@@ -88,7 +89,8 @@ const ListComponent = () => {
                                 <td>{u.lastName}</td>
                                 <td>{u.emailId}</td>
                                 <td>{u.mobile}</td>
-                                <td>{u.createdDate}</td>
+                                <td>{u.designation}</td>
+                                <td>{u.createdDate}</td> 
                             </tr>
                         ))
                     ) : (<tr>

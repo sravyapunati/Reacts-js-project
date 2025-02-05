@@ -7,7 +7,8 @@ const GetComponent = () => {
         firstName: '',
         lastName: '',
         mobile: '',
-        emailId: ''
+        emailId: '',
+        designation: ''
 
     });
     const [error, setError] = useState({
@@ -72,8 +73,8 @@ const GetComponent = () => {
     }
 
     return (
-        <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
-            <div className="card shadow" style={{ width: "25rem" }}>
+        <div className="d-flex justify-content-center align-items-center vh-99 bg-light">
+            <div className="card shadow" style={{ width: "25rem"}}>
                 <div className="card-body mb">
                     <h5 className="card-title text-center">User info</h5>
                     <form>
@@ -90,7 +91,7 @@ const GetComponent = () => {
                         </div>
                         <div className="form-group mb-3">
                             <label>Last Name</label>
-                            <input type="text"P
+                            <input type="text"
                                 className="form-control"
                                 name='lastName'
                                 value={employee.lastName}
@@ -113,6 +114,15 @@ const GetComponent = () => {
                                 name='mobile'
                                 value={employee.mobile}
                                 readOnly
+                            />
+                        </div>
+                        <div className="form-group mb-3">
+                            <label>Designation</label>
+                            <input type="text"
+                                className="form-control"
+                                name='designation'
+                                value={employee.designation || ''}
+                                onChange={(e)=> setEmployee({ ...employee, designation : e.target.value })}
                             />
                         </div>
                         <button type="button" className="btn btn-primary w-100" onClick={updateEmp}>

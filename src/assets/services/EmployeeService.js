@@ -26,7 +26,7 @@ console.log("LocalDate" + formattedDate)
 // })
 
 export const listEmployees = (startIndex, endIndex, formattedDate) => {
-  const REST_API_LIST_URL = `http://localhost:8080/v1/users/get?startIndex=${startIndex}&endIndex=${endIndex}&createdDate=${formattedDate}`;
+  const REST_API_LIST_URL = `http://localhost:8080/v1/users/get?startIndex=${startIndex}&endIndex=${endIndex}`;
   return axios.get(REST_API_LIST_URL);
 };
 
