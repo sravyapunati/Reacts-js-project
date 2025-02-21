@@ -7,11 +7,13 @@ const CreateComponent = () => {
   const [lastName, setLastName] = useState('');
   const [emailId, setEmailId] = useState('');
   const [mobile, setMobile] = useState('');
+  const [designation, setDesignation] = useState('');
   const [error, setError] = useState({
     firstName: '',
     lastName: '',
     emailId: '',
-    mobile: ''
+    mobile: '',
+    designation: ''
   });
 
   const navigate = useNavigate();
@@ -41,6 +43,12 @@ const CreateComponent = () => {
       errorCopy.mobile = ''
     } else {
       errorCopy.mobile = "Mobile cannot be empty"
+      valid = false;
+    }
+    if (designation.trim()) {
+      errorCopy.designation = ''
+    } else {
+      errorCopy.designation = "Designation cannot be empty"
       valid = false;
     }
     setError(errorCopy);
@@ -86,7 +94,7 @@ const CreateComponent = () => {
   }
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div className="d-flex justify-content-center align-items-center vh-99 bg-light">
       <div className="card shadow" style={{ width: "25rem" }}>
         <div className="card-body mb">
           <h5 className="card-title text-center">Add User</h5>
@@ -135,6 +143,17 @@ const CreateComponent = () => {
                 onChange={(e) => setMobile(e.target.value)}
               />
               {error.mobile && <div className='invalid-feedback'>{error.mobile}</div>}
+            </div>
+            <div className="form-group mb-3">
+              <label>Designation</label>
+              <input type="text"
+                className={`form-control ${error.designation ? 'is-invalid' : ''}`}
+                placeholder="Enter your designation"
+                name='designation'
+                value={designation}
+                onChange={(e) => setDesignation(e.target.value)}
+              />
+              {error.designation && <div className='invalid-feedback'>{error.designation}</div>}
             </div>
             <button type="submit" className="btn btn-primary w-100" onClick={addEmployee}>
               Submit
