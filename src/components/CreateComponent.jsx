@@ -74,7 +74,7 @@ const CreateComponent = () => {
     console.log("form submitted")
     e.preventDefault()  //prevents from reloading page
     if (handleError()) {
-      const emp = { firstName, lastName, emailId, mobile }
+      const emp = { firstName, lastName, emailId, mobile, designation }
       // console.log("createcomponent",createEmployee(emp))
       createEmployee(emp).then(async (response) => {
         if (response.status === 400) {
